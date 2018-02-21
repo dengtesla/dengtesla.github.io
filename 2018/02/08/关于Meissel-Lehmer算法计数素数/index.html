@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/08/关于Meissel-Lehmer算法计数素数/index.html">
 <meta property="og:site_name" content="Hyper_Muteki_DengTesla">
 <meta property="og:description" content="假如碰到一道题，询问在[$l,r$]区间($r$$\leq$$n$)中有多少个质数，该怎么处理？显然，这个问题与“小于等于$n$的质数有多少个”是等价的。我们知道，如果n的范围在$1e7$以内，那可以通过线性筛法筛出答案，复杂度$O(n)$,甚至当$n$更小时，用埃拉托斯特尼筛就足以给出答案，但是当$n$更大时该如何处理呢？比如$1e9$,$1e10$甚至$1e11$？（相关题目：HDU 5901">
-<meta property="og:updated_time" content="2018-02-21T17:11:34.652Z">
+<meta property="og:updated_time" content="2018-02-21T17:15:14.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Meissel-Lehmer算法计数素数">
 <meta name="twitter:description" content="假如碰到一道题，询问在[$l,r$]区间($r$$\leq$$n$)中有多少个质数，该怎么处理？显然，这个问题与“小于等于$n$的质数有多少个”是等价的。我们知道，如果n的范围在$1e7$以内，那可以通过线性筛法筛出答案，复杂度$O(n)$,甚至当$n$更小时，用埃拉托斯特尼筛就足以给出答案，但是当$n$更大时该如何处理呢？比如$1e9$,$1e10$甚至$1e11$？（相关题目：HDU 5901">
@@ -180,8 +180,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>假如碰到一道题，询问在[$l,r$]区间($r$$\leq$$n$)中有多少个质数，该怎么处理？显然，这个问题与“小于等于$n$的质数有多少个”是等价的。我们知道，如果n的范围在$1e7$以内，那可以通过线性筛法筛出答案，复杂度$O(n)$,甚至当$n$更小时，用埃拉托斯特尼筛就足以给出答案，但是当$n$更大时该如何处理呢？比如$1e9$,$1e10$甚至$1e11$？（相关题目：HDU 5901（2016沈阳网络赛），CF 665F）Meissel-Lehmer算法正是一种用于处理这种问题的算法。</p>
-<p>先给出原论文链接：<a href="http://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777285-5/S0025-5718-1985-0777285-5.pdf" target="_blank" rel="external">http://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777285-5/S0025-5718-1985-0777285-5.pdf</a> 网上关于ML算法的模板不少，但几乎找不到什么讲原理的文章，所以就去找了相关论文，粗略的读了一下，写出来与大家分享（希望没有理解错原理23333）不足之处望指出，持续补充更新~</p>
+        <p>假如碰到一道题，询问在[$l,r$]区间($r$$\leq$$n$)中有多少个质数，该怎么处理？显然，这个问题与“小于等于$n$的质数有多少个”是等价的。我们知道，如果n的范围在$1e7$以内，那可以通过线性筛法筛出答案，复杂度$O(n)$,甚至当$n$更小时，用埃拉托斯特尼筛就足以给出答案，但是当$n$更大时该如何处理呢？比如$1e9$,$1e10$甚至$1e11$？（相关题目：HDU 5901（2016沈阳网络赛），CF 665F）Meissel-Lehmer算法正是一种用于处理这种问题的算法。<br><a id="more"></a><br>先给出原论文链接：<a href="http://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777285-5/S0025-5718-1985-0777285-5.pdf" target="_blank" rel="external">http://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777285-5/S0025-5718-1985-0777285-5.pdf</a> 网上关于ML算法的模板不少，但几乎找不到什么讲原理的文章，所以就去找了相关论文，粗略的读了一下，写出来与大家分享（希望没有理解错原理23333）不足之处望指出，持续补充更新~</p>
 <p>(接下来提到的都是经Jeffrey Lagarias, Victor Miller 和 Andrew Odlyzko改良后的Meissel-Lehmer算法的思路)</p>
 <p>为方便起见，我们用符号 $\pi(x)$ 代表“不大于$x$的质数的个数”，与以往的“筛选掉合数”的思路不同，Meissel-Lehmer算法的思路比较清奇，他考虑的是：不大于$x$的质数可以分成两部分，一部分是前$a$个质数($p<em>{1},p</em>{2},…,p_{a}$)，另一部分是剩下的质数。假设剩下的质数有$t$个，那么在同时算出$a$和$t$的情况下，就得到了 $\pi(x)$ 的值：$a+t$。</p>
 <p>那么我们现在换一个思路来考虑“质数”这个概念。众所周知，质数是”除了1以外因子只有其本身”的数，而对于每一个有限的自然数（除1以外），必定可以唯一的分解为有限个质数的乘积（唯一分解定理）。所以换言之，如果用“分解的质因子个数”来对自然数分类是一种可行、合法的分类方式，而质数集体正是这其中“恰有一个质因子”这一类的全体。那么如果我们再加入一个条件，即：恰有一个质因子，且这个质因子是大于前a个质数的，并且这个数是不大于x的。这样表示的不就是($p<em>{a},x$]中的质数全体了吗？我们把它的个数记为$P</em>{1}(x,a)$，那么我们现在有了一个有意思的等式：$P_{1}(x,a)+a=\pi(x)$ 。</p>
@@ -465,11 +464,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+                <a href="javascript:void(0)" class="js-tag color4">分析学</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分析学</a>
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
             
             <div class="clearfix"></div>
