@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hyper_Muteki_DengTesla</title>
+  <title>关于Meissel-Lehmer算法计数素数 | Hyper_Muteki_DengTesla</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="假如碰到一道题，询问在[ $l,r$ ]区间( $r$ $\leq$ $n$ )中有多少个质数，该怎么处理？显然，这个问题与“小于等于 $n$ 的质数有多少个”是等价的。我们知道，如果 $n$ 的范围在 $1e7$ 以内，那可以通过线性筛法筛出答案，复杂度 $O(n)$ ,甚至当 $n$ 更小时，用埃拉托斯特尼筛就足以给出答案，但是当 $n$ 更大时该如何处理呢？比如 $1e9$ , $1e10$">
+<meta name="keywords" content="ACM,数学,数论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/11/04/hello-world/index.html">
+<meta property="og:title" content="关于Meissel-Lehmer算法计数素数">
+<meta property="og:url" content="http://yoursite.com/2018/02/22/关于Meissel-Lehmer算法计数素数/index.html">
 <meta property="og:site_name" content="Hyper_Muteki_DengTesla">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2017-11-07T13:17:24.352Z">
+<meta property="og:description" content="假如碰到一道题，询问在[ $l,r$ ]区间( $r$ $\leq$ $n$ )中有多少个质数，该怎么处理？显然，这个问题与“小于等于 $n$ 的质数有多少个”是等价的。我们知道，如果 $n$ 的范围在 $1e7$ 以内，那可以通过线性筛法筛出答案，复杂度 $O(n)$ ,甚至当 $n$ 更小时，用埃拉托斯特尼筛就足以给出答案，但是当 $n$ 更大时该如何处理呢？比如 $1e9$ , $1e10$">
+<meta property="og:updated_time" content="2018-02-22T07:07:14.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="关于Meissel-Lehmer算法计数素数">
+<meta name="twitter:description" content="假如碰到一道题，询问在[ $l,r$ ]区间( $r$ $\leq$ $n$ )中有多少个质数，该怎么处理？显然，这个问题与“小于等于 $n$ 的质数有多少个”是等价的。我们知道，如果 $n$ 的范围在 $1e7$ 以内，那可以通过线性筛法筛出答案，复杂度 $O(n)$ ,甚至当 $n$ 更小时，用埃拉托斯特尼筛就足以给出答案，但是当 $n$ 更大时该如何处理呢？比如 $1e9$ , $1e10$">
   
     <link rel="alternative" href="/atom.xml" title="Hyper_Muteki_DengTesla" type="application/atom+xml">
   
@@ -159,35 +160,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-关于Meissel-Lehmer算法计数素数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      关于Meissel-Lehmer算法计数素数
     </h1>
   
 
         
-        <a href="/2017/11/04/hello-world/" class="archive-article-date">
-  	<time datetime="2017-11-04T10:10:44.274Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
+        <a href="/2018/02/22/关于Meissel-Lehmer算法计数素数/" class="archive-article-date">
+  	<time datetime="2018-02-21T16:20:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>假如碰到一道题，询问在[ $l,r$ ]区间( $r$ $\leq$ $n$ )中有多少个质数，该怎么处理？显然，这个问题与“小于等于 $n$ 的质数有多少个”是等价的。我们知道，如果 $n$ 的范围在 $1e7$ 以内，那可以通过线性筛法筛出答案，复杂度 $O(n)$ ,甚至当 $n$ 更小时，用埃拉托斯特尼筛就足以给出答案，但是当 $n$ 更大时该如何处理呢？比如 $1e9$ , $1e10$ 甚至 $1e11$ ？（相关题目：HDU 5901（2016沈阳网络赛），CF 665F）Meissel-Lehmer算法正是一种用于处理这种问题的算法。<br><a id="more"></a><br>先给出原论文链接：<a href="http://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777285-5/S0025-5718-1985-0777285-5.pdf" target="_blank" rel="external">http://www.ams.org/journals/mcom/1985-44-170/S0025-5718-1985-0777285-5/S0025-5718-1985-0777285-5.pdf</a> 网上关于ML算法的模板不少，但几乎找不到什么讲原理的文章，所以就去找了相关论文，粗略的读了一下，写出来与大家分享（希望没有理解错原理23333）不足之处望指出，持续补充更新~</p>
+<p>(接下来提到的都是经Jeffrey Lagarias, Victor Miller 和 Andrew Odlyzko改良后的Meissel-Lehmer算法的思路)</p>
+<p>为方便起见，我们用符号 $\pi(x)$ 代表“不大于$x$的质数的个数”，与以往的“筛选掉合数”的思路不同，Meissel-Lehmer算法的思路比较清奇，他考虑的是：不大于 $x$ 的质数可以分成两部分，一部分是前 $a$ 个质数( $p_1,p_2,…,p_a$ )，另一部分是剩下的质数。假设剩下的质数有 $t$ 个，那么在同时算出 $a$ 和 $t$ 的情况下，就得到了 $\pi(x)$ 的值：$a+t$。</p>
+<p>那么我们现在换一个思路来考虑“质数”这个概念。众所周知，质数是”除了1以外因子只有其本身”的数，而对于每一个有限的自然数（除1以外），必定可以唯一的分解为有限个质数的乘积（唯一分解定理）。所以换言之，如果用“分解的质因子个数”来对自然数分类是一种可行、合法的分类方式，而质数集体正是这其中“恰有一个质因子”这一类的全体。那么如果我们再加入一个条件，即：恰有一个质因子，且这个质因子是大于前a个质数的，并且这个数是不大于x的。这样表示的不就是( $p_a,x$ ]中的质数全体了吗？我们把它的个数记为 $P_1(x,a)$ ，那么我们现在有了一个有意思的等式：$P_1(x,a)+a=\pi(x)$ 。</p>
+<p>相似的，我们用 $P_k(x,a)$ 表示：“不大于 $x$ ，且恰有 $k$ 个质因子（每个质因子均大于 $p_a$ ）的数”的个数，那么如果我们把 $k=0,1,2,…$ 的情况全部加起来，得到的岂不就是…所有不大于 $x$ 的自然数的个数？好吧其实并不是，我们得到的将是“不大于 $x$ 的数中，分解后不含有 $p_1,p_2,…,p_a$ 这些质因子的数”的个数，不妨再给他一个记号: $\phi (x,a)$ 。那么现在我们又有了一个有意思的等式：  $\phi(x,a)=\sum_{k=0}^{\infty}P_k(x,a)$ ，其中 $P_0(x,a)=1$ ，代表1这个自然数。</p>
+<p>整理一下，我们目前有三个记号，分别是：</p>
+<h4 id="pi-x-：不大于-x-的质数的个数"><a href="#pi-x-：不大于-x-的质数的个数" class="headerlink" title="$\pi(x)$ ：不大于 $x$ 的质数的个数"></a>$\pi(x)$ ：不大于 $x$ 的质数的个数</h4><h4 id="P-k-x-a-：不大于-x-，且恰有-k-个质因子（每个质因子均大于-p-a-）的数的个数"><a href="#P-k-x-a-：不大于-x-，且恰有-k-个质因子（每个质因子均大于-p-a-）的数的个数" class="headerlink" title="$P_k(x,a)$ ：不大于 $x$ ，且恰有 $k$ 个质因子（每个质因子均大于 $p_a$ ）的数的个数"></a>$P_k(x,a)$ ：不大于 $x$ ，且恰有 $k$ 个质因子（每个质因子均大于 $p_a$ ）的数的个数</h4><h4 id="phi-x-a-：不大于-x-的数中，分解后不含前-a-个质数的数的个数"><a href="#phi-x-a-：不大于-x-的数中，分解后不含前-a-个质数的数的个数" class="headerlink" title="$\phi(x,a)$ ：不大于 $x$ 的数中，分解后不含前 $a$ 个质数的数的个数"></a>$\phi(x,a)$ ：不大于 $x$ 的数中，分解后不含前 $a$ 个质数的数的个数</h4><p>并且我们有两个等式：</p>
+<h4 id="P-1-x-a-a-pi-x-qquad-qquad-qquad-1"><a href="#P-1-x-a-a-pi-x-qquad-qquad-qquad-1" class="headerlink" title="$P_1(x,a)+a=\pi(x)$ $\qquad\qquad\qquad$  $(1)$"></a>$P_1(x,a)+a=\pi(x)$ $\qquad\qquad\qquad$  $(1)$</h4><h4 id="phi-x-a-sum-k-0-infty-P-k-x-a-qquad-qquad-2"><a href="#phi-x-a-sum-k-0-infty-P-k-x-a-qquad-qquad-2" class="headerlink" title="$\phi(x,a)=\sum_{k=0}^{\infty}P_k(x,a)$ $\ \qquad\qquad$ $(2)$"></a>$\phi(x,a)=\sum_{k=0}^{\infty}P_k(x,a)$ $\ \qquad\qquad$ $(2)$</h4><p>我们的目标是计算出 $\pi(x)$ ,而由 $(1)$ 式可知，我们只需要知道$a$和 $P_1(x,a)$ 即可。显然，这里的$a$是可以任意取的（$a \leq \pi(x)$）,而$P_1(x,a)$ 的求法由 $(2)$ 式也许可以计算。但由于 $(2)$ 式中含有一个无穷级数，求法似乎也不那么显然…那怎么办…凉了呀…</p>
+<p>然而仔细一想，这个无穷级数好像是骗人的？他一定只有有限项不是0！比如说比不大于8的数中，最多最多只有3个质因子（ $8=2*2*2$ ），不大于27、且分解后不含第一个质数2的数最多最多只有3个质因子（$27=3*3*3$）…那么我们是不是可以取合适的$a$，使得这个无穷级数只有前面2或3项不是0，剩下的都是0？这样不就好处理多了吗！不妨取 $a=\pi(x^{1/3})$，这样的话就只有$P_{0}(x,a),P_{1}(x,a),p_{2}(x,a)$ 非零，剩下的全是零了！</p>
+<p>那么整理一下，现在我们的式子已经化简为了：</p>
+<h4 id="pi-x-a-phi-x-a-P-0-x-a-P-2-x-a"><a href="#pi-x-a-phi-x-a-P-0-x-a-P-2-x-a" class="headerlink" title="$$\pi(x)=a+\phi(x,a)-P_{0}(x,a)-P_{2}(x,a)$$"></a>$$\pi(x)=a+\phi(x,a)-P_{0}(x,a)-P_{2}(x,a)$$</h4><p>由于$P_{0}(x,a)=1$,所以等价于：</p>
+<h4 id="pi-x-a-phi-x-a-1-P-2-x-a"><a href="#pi-x-a-phi-x-a-1-P-2-x-a" class="headerlink" title="$$\pi(x)=a+\phi(x,a)-1-P_{2}(x,a)$$"></a>$$\pi(x)=a+\phi(x,a)-1-P_{2}(x,a)$$</h4><p>其中$a=\pi(x^{1/3})$ 。</p>
+<p>那么接下来就是考虑如何求解 $\phi_{2}(x,a)$ 和 $P_{2}(x,a)$ 的问题了。</p>
 
       
 
@@ -222,6 +227,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -272,7 +296,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/04/hello-world/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/02/22/关于Meissel-Lehmer算法计数素数/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,15 +310,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/04/fanhan1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          泛函分析（刘炳初）第一章答案
-        
-      </div>
-    </a>
   
+    <a href="/2018/01/30/欧拉降幂公式证明/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">欧拉降幂公式证明</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
