@@ -6,35 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>泛函分析（刘炳初）第一章答案 | Hyper_Muteki_DengTesla</title>
+  <title>浅谈狄利克雷生成函数 | Hyper_Muteki_DengTesla</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="emmmm…花了一天时间终于搞定了这个blog……这次先用拍照的形式了，等我以后用熟了Markdown再试试直接码公式吧QAQ">
-<meta name="keywords" content="分析学,数学">
+  <meta name="description" content="这两天抽空看了点关于生成函数的知识，指数型和普通生成函数在组合数学中基本都学习过了，主要是狄利克雷生成函数比较新颖，遂开一篇博客做一些笔记（理解不到位之处还望指出www）">
+<meta name="keywords" content="数学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="泛函分析（刘炳初）第一章答案">
-<meta property="og:url" content="http://yoursite.com/2017/11/04/fanhan1/index.html">
+<meta property="og:title" content="浅谈狄利克雷生成函数">
+<meta property="og:url" content="http://yoursite.com/2018/11/24/浅谈狄利克雷生成函数/index.html">
 <meta property="og:site_name" content="Hyper_Muteki_DengTesla">
-<meta property="og:description" content="emmmm…花了一天时间终于搞定了这个blog……这次先用拍照的形式了，等我以后用熟了Markdown再试试直接码公式吧QAQ">
-<meta property="og:image" content="https://s1.ax1x.com/2017/11/04/0wsZn.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7h72up1vjn1qt91gj6v5tgda.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7h8l6o7urqp61dtp1khtlgta.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7jkvht1vdl1b8c1hp6rrp1kcra.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7jndn7kg4qf710o4bsq19qna.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7jor8a1k8s7je6ls14f21qbva.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7jqehrem1kva1n6i1hg11oqca.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7ju97mrqc6f01hdr1rk5aaba.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7jvt9f2mi1crm12pg13fqkja.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7k0pbutjs1sidt5111mcof8a.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7k1t5lsa5hi0li11ufe1ecfa.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7k2o071ejo3364o818f717f1a.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7k3k9p128v1q8i1a1obf9elna.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7k4rb81lv31t7gsot1kth162na.jpg">
-<meta property="og:image" content="http://tu-img-1.aixinxi.net/o_1bu7k65fibq1djm17r5cqpi03a.jpg">
-<meta property="og:updated_time" content="2017-11-07T13:55:12.517Z">
+<meta property="og:description" content="这两天抽空看了点关于生成函数的知识，指数型和普通生成函数在组合数学中基本都学习过了，主要是狄利克雷生成函数比较新颖，遂开一篇博客做一些笔记（理解不到位之处还望指出www）">
+<meta property="og:updated_time" content="2018-11-24T14:44:28.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="泛函分析（刘炳初）第一章答案">
-<meta name="twitter:description" content="emmmm…花了一天时间终于搞定了这个blog……这次先用拍照的形式了，等我以后用熟了Markdown再试试直接码公式吧QAQ">
-<meta name="twitter:image" content="https://s1.ax1x.com/2017/11/04/0wsZn.jpg">
+<meta name="twitter:title" content="浅谈狄利克雷生成函数">
+<meta name="twitter:description" content="这两天抽空看了点关于生成函数的知识，指数型和普通生成函数在组合数学中基本都学习过了，主要是狄利克雷生成函数比较新颖，遂开一篇博客做一些笔记（理解不到位之处还望指出www）">
   
     <link rel="alternative" href="/atom.xml" title="Hyper_Muteki_DengTesla" type="application/atom+xml">
   
@@ -176,27 +160,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-fanhan1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-浅谈狄利克雷生成函数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      泛函分析（刘炳初）第一章答案
+      浅谈狄利克雷生成函数
     </h1>
   
 
         
-        <a href="/2017/11/04/fanhan1/" class="archive-article-date">
-  	<time datetime="2017-11-04T12:29:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
+        <a href="/2018/11/24/浅谈狄利克雷生成函数/" class="archive-article-date">
+  	<time datetime="2018-11-24T11:11:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>emmmm…花了一天时间终于搞定了这个blog……这次先用拍照的形式了，等我以后用熟了Markdown再试试直接码公式吧QAQ<br><a id="more"></a><br><img src="https://s1.ax1x.com/2017/11/04/0wsZn.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7h72up1vjn1qt91gj6v5tgda.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7h8l6o7urqp61dtp1khtlgta.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7jkvht1vdl1b8c1hp6rrp1kcra.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7jndn7kg4qf710o4bsq19qna.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7jor8a1k8s7je6ls14f21qbva.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7jqehrem1kva1n6i1hg11oqca.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7ju97mrqc6f01hdr1rk5aaba.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7jvt9f2mi1crm12pg13fqkja.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7k0pbutjs1sidt5111mcof8a.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7k1t5lsa5hi0li11ufe1ecfa.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7k2o071ejo3364o818f717f1a.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7k3k9p128v1q8i1a1obf9elna.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7k4rb81lv31t7gsot1kth162na.jpg" alt="image"><br><img src="http://tu-img-1.aixinxi.net/o_1bu7k65fibq1djm17r5cqpi03a.jpg" alt="image"></p>
+        <p>这两天抽空看了点关于生成函数的知识，指数型和普通生成函数在组合数学中基本都学习过了，主要是狄利克雷生成函数比较新颖，遂开一篇博客做一些笔记（理解不到位之处还望指出www）<br><a id="more"></a></p>
+<h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><p>众所周知，对于一个序列 ${a_n}$ ,他的普通形式的母函数为 $\Sigma_{n \ge 0} a_nx^n$ ,指数形母函数为 $\Sigma_{n \ge 0} a_n \frac{x^n}{n!}$ ,相应的，他的DGF（Dirichlet Generating Function）也有类似的形式。定义为： $f(s) = \Sigma_{n = 1}^{\infty } \frac{a_n}{n^s} = a_1+\frac{a_2}{2^s}+\frac{a_3}{3^s}+\cdots$ .</p>
+<h2 id="一些性质："><a href="#一些性质：" class="headerlink" title="一些性质："></a>一些性质：</h2><p>既然是生成函数，那么很重要的一点就是，若已知 ${a_n}$ 的生成函数$f$ 和 ${b_n}$ 的生成函数 $g$, $fg$ 应该如何表示呢？</p>
+<p>对于普通型生成函数，有 $fg = \Sigma_{n \ge 0}(\Sigma_{r=0}^{n}a_rb_{n-r})x^n$</p>
+<p>而对于指数型生成函数，有 $fg = \Sigma_{n \ge 0} (\Sigma_{r+s=n} \frac{a_rb_s}{r!s!})x^n$</p>
+<p>对于狄利克雷生成函数，我们有：<br>$$<br>\begin{equation}<br>\begin{split}<br>fg &amp;= (a_1+\frac{a_2}{2^s}+\frac{a_3}{3^s}+\cdots)(b_1+\frac{b_2}{2^s}+\frac{b_3}{3^s}+\cdots)\\<br>&amp;=(a_1b_1) + \frac{(a_1b_2+a_2b_1)}{2^s} + \frac{(a_1b_3+a_3b_1)}{3^s} + \frac{(a_1b_4+a_2b_2+a_4b_1)}{4^s} + \cdots \\<br>&amp;=\Sigma_{n \ge 1} \frac{\Sigma_{d|n}a_db_{\frac{n}{d}}}{n^s}<br>\end{split}<br>\end{equation}<br>$$<br>也就是说，对于 ${a_n}$ 和 ${b_n}$ 的 DGF：$f$ 和 $g$ ，$fg$ 恰好正是 ${a_n}$ 和 ${b_n}$ 的狄利克雷卷积的DGF！这是一个很有意思的性质，并且这个性质指导了我们在遇到积性函数时，考虑DGF也许会有一些有趣的发现。</p>
+<p>不难发现序列 ${1,1,1,\cdots}$ 的DGF是 $\Sigma_{n \ge 1} \frac{1}{n^s} = \zeta(s)$ , 即黎曼Zeta函数。而 $1(n)$ 和 $1(n)$ 的<br>狄利克雷卷积（$1*1$）为$d(n)$，即n的因子个数的函数。所以 $\zeta^2(s) = \Sigma\frac{d(n)}{n^s}$ .</p>
+<p>接下来的一条很有趣(也很有用)的性质是：如果 $f(n)$ 是一个积性函数，那么：<br>$$<br>\Sigma_{n=1}^{\infty} \frac{f(n)}{n^s} = \prod_p(1+\frac{f(p)}{p^s}+\frac{f(p^2)}{p^{2s}}+\frac{f(p^3)}{p^{3s}}+\cdots)<br>$$</p>
+<p>其中 $p$ 遍历全体素数。证明也比较容易，考虑积性函数的性质即可。</p>
+<p>由此我们就能得到：<br>$$<br>\begin{equation}<br>\begin{split}<br>\zeta(s) &amp;= \prod_p(1+\frac{1}{p^s}+\frac{1}{p^{2s}}+\cdots)\\<br>&amp;= \prod_p(\frac{1}{1-p^{-s}})\\<br>&amp;= \frac{1}{\prod_p(1-p^{-s})}<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>而由莫比乌斯函数 $\mu$ 的性质我们容易知道， $\Sigma_{n=1}^{\infty} \frac{\mu(n)}{n^s} = \prod_p(1-\frac{1}{p^s})$，即：$\Sigma_{n=1}^{\infty} \frac{\mu(n)}{n^s} =\frac{1}{\zeta(s)}$ , 即 $\zeta$ 函数的倒数正是 $\mu$ 函数的DGF。由此我们也可以很轻快地证明莫比乌斯反演公式。</p>
+<h3 id="一个算是DGF应用的题？"><a href="#一个算是DGF应用的题？" class="headerlink" title="一个算是DGF应用的题？"></a>一个算是DGF应用的题？</h3><p>已知积性函数 $f(x)$ 满足：$f(1)=1,f(p^e)=p^2 \  (\forall\ p\ is\ a\ prime)$ , 求其前缀和 $\Sigma_{i=1}^n f(i)$ 。（摘自Project Euler）</p>
+<p>考虑 $f(x)$ 的DGF:<br>$$<br>\begin{equation}<br>\begin{split}<br>F(s) &amp;= \Sigma_{n=1}^{\infty}\frac{f(n)}{n^s}\\<br>&amp;= \prod_p(1+\frac{f(p)}{p^s}+\frac{f(p^2)}{p^{2s}}+\cdots)\\<br>&amp;= \prod_p(1+p^2(\frac{1}{p^s}+\frac{1}{p^{2s}}+\cdots))\\<br>&amp;= \prod_p(\frac{1-p^{-s}+p^{2-s}}{1-p^{-s}})\\<br>&amp;= \zeta(s-2)\prod_p(1-(p^{4}-p^{2})(p^{-2s}+p^{-3s}+\cdots))<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>这样就有<br>$$<br>\begin{equation}<br>\begin{split}<br>\Sigma_{i=1}^{n}f(i) &amp;= \Sigma_{m 含平方因子} g(m)\Sigma_{i=1}^{\lfloor \frac{n}{m}\rfloor}i^2<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>其中 $g(m)=\prod_{p^2|n}(p^2-p^4)$</p>
+<p>减少了许多不必要的枚举，将复杂度降至 $\sqrt{n}$。</p>
 
       
 
@@ -235,10 +234,6 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
@@ -296,7 +291,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/04/fanhan1/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/11/24/浅谈狄利克雷生成函数/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -310,18 +305,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/06/fanhan2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          泛函分析（刘炳初）第二章答案
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/04/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2018/08/26/2018ccpc网络赛1002/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2018ccpc网络赛1002(HDU6439)</div>
       <i class="icon-circle-right"></i>
     </a>
   
