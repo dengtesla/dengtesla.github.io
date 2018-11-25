@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/11/24/浅谈狄利克雷生成函数/index.html">
 <meta property="og:site_name" content="Hyper_Muteki_DengTesla">
 <meta property="og:description" content="这两天抽空看了点关于生成函数的知识，指数型和普通生成函数在组合数学中基本都学习过了，主要是狄利克雷生成函数比较新颖，遂开一篇博客做一些笔记（理解不到位之处还望指出www）">
-<meta property="og:updated_time" content="2018-11-24T14:44:28.112Z">
+<meta property="og:updated_time" content="2018-11-25T12:35:53.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈狄利克雷生成函数">
 <meta name="twitter:description" content="这两天抽空看了点关于生成函数的知识，指数型和普通生成函数在组合数学中基本都学习过了，主要是狄利克雷生成函数比较新颖，遂开一篇博客做一些笔记（理解不到位之处还望指出www）">
@@ -192,10 +192,8 @@
 <p>由此我们就能得到：<br>$$<br>\begin{equation}<br>\begin{split}<br>\zeta(s) &amp;= \prod_p(1+\frac{1}{p^s}+\frac{1}{p^{2s}}+\cdots)\\<br>&amp;= \prod_p(\frac{1}{1-p^{-s}})\\<br>&amp;= \frac{1}{\prod_p(1-p^{-s})}<br>\end{split}<br>\end{equation}<br>$$</p>
 <p>而由莫比乌斯函数 $\mu$ 的性质我们容易知道， $\Sigma_{n=1}^{\infty} \frac{\mu(n)}{n^s} = \prod_p(1-\frac{1}{p^s})$，即：$\Sigma_{n=1}^{\infty} \frac{\mu(n)}{n^s} =\frac{1}{\zeta(s)}$ , 即 $\zeta$ 函数的倒数正是 $\mu$ 函数的DGF。由此我们也可以很轻快地证明莫比乌斯反演公式。</p>
 <h3 id="一个算是DGF应用的题？"><a href="#一个算是DGF应用的题？" class="headerlink" title="一个算是DGF应用的题？"></a>一个算是DGF应用的题？</h3><p>已知积性函数 $f(x)$ 满足：$f(1)=1,f(p^e)=p^2 \  (\forall\ p\ is\ a\ prime)$ , 求其前缀和 $\Sigma_{i=1}^n f(i)$ 。（摘自Project Euler）</p>
-<p>考虑 $f(x)$ 的DGF:<br>$$<br>\begin{equation}<br>\begin{split}<br>F(s) &amp;= \Sigma_{n=1}^{\infty}\frac{f(n)}{n^s}\\<br>&amp;= \prod_p(1+\frac{f(p)}{p^s}+\frac{f(p^2)}{p^{2s}}+\cdots)\\<br>&amp;= \prod_p(1+p^2(\frac{1}{p^s}+\frac{1}{p^{2s}}+\cdots))\\<br>&amp;= \prod_p(\frac{1-p^{-s}+p^{2-s}}{1-p^{-s}})\\<br>&amp;= \zeta(s-2)\prod_p(1-(p^{4}-p^{2})(p^{-2s}+p^{-3s}+\cdots))<br>\end{split}<br>\end{equation}<br>$$</p>
-<p>这样就有<br>$$<br>\begin{equation}<br>\begin{split}<br>\Sigma_{i=1}^{n}f(i) &amp;= \Sigma_{m 含平方因子} g(m)\Sigma_{i=1}^{\lfloor \frac{n}{m}\rfloor}i^2<br>\end{split}<br>\end{equation}<br>$$</p>
-<p>其中 $g(m)=\prod_{p^2|n}(p^2-p^4)$</p>
-<p>减少了许多不必要的枚举，将复杂度降至 $\sqrt{n}$。</p>
+<p>考虑 $f(x)$ 的DGF:<br>$$<br>\begin{equation}<br>\begin{split}<br>F(s) &amp;= \Sigma_{n=1}^{\infty}\frac{f(n)}{n^s}\\<br>&amp;= \prod_p(1+\frac{f(p)}{p^s}+\frac{f(p^2)}{p^{2s}}+\cdots)\\<br>&amp;= \prod_p(1+p^2(\frac{1}{p^s}+\frac{1}{p^{2s}}+\cdots))\\<br>&amp;= \prod_p(\frac{1-p^{-s}+p^{2-s}}{1-p^{-s}})\\<br>&amp;=\prod_p(\frac{1-p^{-s}+p^{2-s}}{1-p^{2-s}}  \frac{1-p^{2-s}}{1-p^{-s}})\\<br>&amp;= \prod_p(\frac{1}{1-p^{2-s}})\prod_p (\frac{1-p^{-s}+p^{2-2s}-p^{4-2s}}{1-p^{-s}})\\<br>&amp;= \zeta(s-2)\prod_p (1 + \frac{p^{2-2s}-p^{4-2s}}{1-p^{-s}})\\<br>&amp;= \zeta(s-2)\prod_p(1+(p^{2}-p^{4})(p^{-2s}+p^{-3s}+\cdots))\\<br>&amp;=(\Sigma_{n \ge 1}\frac{n^2}{n^s})\prod_p(1+(p^{2}-p^{4})(\frac{1}{({p^2})^{s}}+\frac{1}{({p^3})^{s}}+\cdots))<br>\end{split}<br>\end{equation}<br>$$</p>
+<p>而我们要求的是这个级数 $\Sigma \frac{a_n}{n^s}$ 的 $a_n$ 的前缀和，而由之前推的式子可以得知，此时我们只需要枚举“每个质因子的幂次均大于等于2”的数（powerful number）并累加他们的贡献即可，易证明这些数的个数量级在 $O(\sqrt n)$ ，而每次累加的贡献可以用平方和公式 $O(1)$ 得到，故将总体复杂度降至了 $\sqrt n$ 。（该方法学习自PE639的Thread中第一篇post）。</p>
 
       
 
@@ -454,7 +452,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分析学</a>
+                <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,11 +460,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ACM</a>
+                <a href="javascript:void(0)" class="js-tag color3">数论</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数论</a>
+                <a href="javascript:void(0)" class="js-tag color4">分析学</a>
               </li>
             
             <div class="clearfix"></div>
