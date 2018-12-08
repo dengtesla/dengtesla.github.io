@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://t1.aixinxi.net/o_1cu6es7o7n1t1d5p1deriukjtma.png-w.jpg">
 <meta property="og:image" content="http://t1.aixinxi.net/o_1cu6fr9domcn1eg25q1at4r77a.png-w.jpg">
 <meta property="og:image" content="http://t1.aixinxi.net/o_1cu6goehcmu1pt841u185a6g2a.png-w.jpg">
-<meta property="og:updated_time" content="2018-12-08T09:22:34.511Z">
+<meta property="og:updated_time" content="2018-12-08T09:48:47.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一种亚线性筛法的详细解读(min_25筛前置)">
 <meta name="twitter:description" content="很早之前就了解了min_25筛，当时折腾了两三天魔改各种代码之后存下了一个自用的懒人操作的求积性函数前缀和模板。最近又碰到了些筛法的题，并且重新思考了min_25筛，发现他的前置处理很有意思，而且网上的很多教程写的不明不白，故开一贴写下自己的一些见解（伪教程？）。">
@@ -188,8 +188,8 @@
       
         <p>很早之前就了解了min_25筛，当时折腾了两三天魔改各种代码之后存下了一个自用的懒人操作的求积性函数前缀和模板。最近又碰到了些筛法的题，并且重新思考了min_25筛，发现他的前置处理很有意思，而且网上的很多教程写的不明不白，故开一贴写下自己的一些见解（伪教程？）。<br><a id="more"></a></p>
 <p>这种筛法要从 <a href="http://projecteuler.net/problem=10" target="_blank" rel="external">Problem 10 - Project Euler</a> 说起。在这道题的thread的第五页，Lucy_Hedgehog对于“求n以内质数和”的问题给出了一种亚线性的筛法，复杂度为 $O(n^{0.75})$ （事实上由于素数定理的缘故可以优化至 $O(\frac{n^{0.75}}{lnn})$ ）。而这种筛法的原理正是min_25筛的前置处理过程。</p>
-<h3 id="min-25筛"><a href="#min-25筛" class="headerlink" title="min_25筛"></a>min_25筛</h3><p>min_25筛是一种亚线性（ $O(\frac{n^{0.75}}{lnn})$ ）求解积性函数的前缀和的方法，只要该积性函数满足“在质数时的表达式为多项式，并且在质数幂次时的值容易求解”，就可以用min_25筛来求解其前缀和（其实有些不具有这样的性质的函数也可以这样求解）。其基本的思路是:首先求解 $\Sigma_{i=1}^{x}f(x)[x为质数]$ 在 $x=\lfloor \frac{n}{1} \rfloor , \lfloor \frac{n}{2} \rfloor , \lfloor \frac{n}{3} \rfloor,…$ 这 $O(\sqrt n)$ 个位置处的取值，然后利用这些值dfs求解即可。这里主要讨论他的前半部分：如何求解 $\Sigma_{i=1}^{x}f(x)[x为质数]$ 在 $x=\lfloor \frac{n}{1} \rfloor , \lfloor \frac{n}{2} \rfloor , \lfloor \frac{n}{3} \rfloor,…$ 这 $O(\sqrt n)$ 个位置处的取值？</p>
-<h3 id="如何求解-Sigma-i-1-x-f-x-x为质数-？"><a href="#如何求解-Sigma-i-1-x-f-x-x为质数-？" class="headerlink" title="如何求解 $\Sigma_{i=1}^{x}f(x)[x为质数]$ ？"></a>如何求解 $\Sigma_{i=1}^{x}f(x)[x为质数]$ ？</h3><p>网上找到的许多教程都把重点放在“推转移式”，“节省空间的动态规划”上，窃以为既然叫“筛”，那不如从筛法的角度来理解会更合适一点，我们从一个最简单的例子开始入手：求25以内质数的个数。</p>
+<h3 id="min-25筛"><a href="#min-25筛" class="headerlink" title="min_25筛"></a>min_25筛</h3><p>min_25筛是一种亚线性（ $O(\frac{n^{0.75}}{lnn})$ ）求解积性函数的前缀和的方法，只要该积性函数满足“在质数时的表达式为多项式，并且在质数幂次时的值容易求解”，就可以用min_25筛来求解其前缀和（其实有些不具有这样的性质的函数也可以这样求解）。其基本的思路是:首先求解 $\Sigma_{i=1}^{x}f(i)[i为质数]$ 在 $x=\lfloor \frac{n}{1} \rfloor , \lfloor \frac{n}{2} \rfloor , \lfloor \frac{n}{3} \rfloor,…$ 这 $O(\sqrt n)$ 个位置处的取值，然后利用这些值dfs求解即可。这里主要讨论他的前半部分：如何求解 $\Sigma_{i=1}^{x}f(i)[i为质数]$ 在 $x=\lfloor \frac{n}{1} \rfloor , \lfloor \frac{n}{2} \rfloor , \lfloor \frac{n}{3} \rfloor,…$ 这 $O(\sqrt n)$ 个位置处的取值？</p>
+<h3 id="如何求解-Sigma-i-1-x-f-i-i为质数-？"><a href="#如何求解-Sigma-i-1-x-f-i-i为质数-？" class="headerlink" title="如何求解 $\Sigma_{i=1}^{x}f(i)[i为质数]$ ？"></a>如何求解 $\Sigma_{i=1}^{x}f(i)[i为质数]$ ？</h3><p>网上找到的许多教程都把重点放在“推转移式”，“节省空间的动态规划”上，窃以为既然叫“筛”，那不如从筛法的角度来理解会更合适一点，我们从一个最简单的例子开始入手：求25以内质数的个数。</p>
 <p>我们先考虑所有形如 $\lfloor \frac{25}{i} \rfloor$ 的数，这种数只有 $9$ 个，分别是 ${1,2,3,4,5,6,8,12,25}$ (事实上，对于任意的 $n$ ，这种数的个数只有 $2\lfloor \sqrt n \rfloor$ 左右) 。</p>
 <p>筛之前我们先把表给列出来（已除去1），其中上半部分表示”现在还有哪些数是质数”，最后那一行是当前数组里的值（筛到目前在x以下的质数还有几个）。</p>
 <p><img src="http://t1.aixinxi.net/o_1cu6dusdn7si1oho1kq71j4g112ja.png-w.jpg" alt="image"></p>
