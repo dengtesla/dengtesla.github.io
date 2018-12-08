@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://t1.aixinxi.net/o_1cu6es7o7n1t1d5p1deriukjtma.png-w.jpg">
 <meta property="og:image" content="http://t1.aixinxi.net/o_1cu6fr9domcn1eg25q1at4r77a.png-w.jpg">
 <meta property="og:image" content="http://t1.aixinxi.net/o_1cu6goehcmu1pt841u185a6g2a.png-w.jpg">
-<meta property="og:updated_time" content="2018-12-08T09:48:47.534Z">
+<meta property="og:updated_time" content="2018-12-08T11:54:15.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一种亚线性筛法的详细解读(min_25筛前置)">
 <meta name="twitter:description" content="很早之前就了解了min_25筛，当时折腾了两三天魔改各种代码之后存下了一个自用的懒人操作的求积性函数前缀和模板。最近又碰到了些筛法的题，并且重新思考了min_25筛，发现他的前置处理很有意思，而且网上的很多教程写的不明不白，故开一贴写下自己的一些见解（伪教程？）。">
@@ -203,7 +203,7 @@
 <p>接下来对 $a[12],…$ 用相同操作处理。事实上，由于”如果 $n$ 不是质数，要么 $n$ 最小的质因子一定不大于 $\sqrt n$” ，所以当我们在用素数 $p$ 筛完一轮后（亦即：此时表中已经没有了“拥有比 $p$ 更小的因子的合数”），对于任意小于等于 $p * p$ 的 $t$ , $a[t]$ 中存储的值都已经是 “ $t$ 以下的质数个数” 了，也就是说此时的值都已经是我们想要的真值了。换个角度说，我们只需要使用 $\sqrt n$ 以下的质数即可将我们所需要的信息全部筛出来，同时对于每一轮的筛选也只需要处理满足 $t \geq p*p$ 的 $a[t]$ 即可。附上最终筛完的表：</p>
 <p><img src="http://t1.aixinxi.net/o_1cu6goehcmu1pt841u185a6g2a.png-w.jpg" alt="image"></p>
 <p>关于复杂度证明这里就不赘述了，网上铺天盖地的。。。（打latex真的好累啊TAT）</p>
-<h3 id="还能干什么？"><a href="#还能干什么？" class="headerlink" title="还能干什么？"></a>还能干什么？</h3><p>事实上这种亚线性筛的思想还是很有用的，比如再多维护一维之后可以筛出模一个小质数下不同余数的质数分别有多少个，同时对一些性质不那么好的积性函数只要能用这种筛法维护出他的“质数处函数值前缀和”，就一样可以利用min_25筛的后一部分的转移求出积性函数前缀和。（如有想到再做更新）</p>
+<h3 id="还能干什么？"><a href="#还能干什么？" class="headerlink" title="还能干什么？"></a>还能干什么？</h3><p>事实上这种亚线性筛的思想还是很有用的，可以维护质数的任意次幂前缀和，如果再多维护一维之后还可以筛出模一个小质数下不同余数的质数分别有多少个，同时对一些性质不那么好的积性函数只要能用这种筛法维护出他的“质数处函数值前缀和”，就一样可以利用min_25筛的后一部分的转移求出积性函数前缀和。（如有想到再做更新）</p>
 
       
 
@@ -466,7 +466,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ACM</a>
+                <a href="javascript:void(0)" class="js-tag color4">分析学</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -474,7 +474,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分析学</a>
+                <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
               <li class="article-tag-list-item">
