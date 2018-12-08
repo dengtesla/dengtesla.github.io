@@ -6,14 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hyper_Muteki_DengTesla</title>
+  <title>一种亚线性筛法的详细解读(min_25筛前置) | Hyper_Muteki_DengTesla</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hyper_Muteki_DengTesla">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="很早之前就了解了min_25筛，当时折腾了两三天魔改各种代码之后存下了一个自用的懒人操作的求积性函数前缀和模板。最近又碰到了些筛法的题，并且重新思考了min_25筛，发现他的前置处理很有意思，而且网上的很多教程写的不明不白，故开一贴写下自己的一些见解（伪教程？）。">
+<meta name="keywords" content="ACM,数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一种亚线性筛法的详细解读(min_25筛前置)">
+<meta property="og:url" content="http://yoursite.com/2018/12/08/一种亚线性筛法的详细解读-min-25筛前置/index.html">
 <meta property="og:site_name" content="Hyper_Muteki_DengTesla">
+<meta property="og:description" content="很早之前就了解了min_25筛，当时折腾了两三天魔改各种代码之后存下了一个自用的懒人操作的求积性函数前缀和模板。最近又碰到了些筛法的题，并且重新思考了min_25筛，发现他的前置处理很有意思，而且网上的很多教程写的不明不白，故开一贴写下自己的一些见解（伪教程？）。">
+<meta property="og:image" content="http://t1.aixinxi.net/o_1cu6dusdn7si1oho1kq71j4g112ja.png-w.jpg">
+<meta property="og:image" content="http://t1.aixinxi.net/o_1cu6ek61k116l6un14vu11ip1a3ta.png-w.jpg">
+<meta property="og:image" content="http://t1.aixinxi.net/o_1cu6es7o7n1t1d5p1deriukjtma.png-w.jpg">
+<meta property="og:image" content="http://t1.aixinxi.net/o_1cu6fr9domcn1eg25q1at4r77a.png-w.jpg">
+<meta property="og:image" content="http://t1.aixinxi.net/o_1cu6goehcmu1pt841u185a6g2a.png-w.jpg">
+<meta property="og:updated_time" content="2018-12-08T09:22:34.511Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hyper_Muteki_DengTesla">
+<meta name="twitter:title" content="一种亚线性筛法的详细解读(min_25筛前置)">
+<meta name="twitter:description" content="很早之前就了解了min_25筛，当时折腾了两三天魔改各种代码之后存下了一个自用的懒人操作的求积性函数前缀和模板。最近又碰到了些筛法的题，并且重新思考了min_25筛，发现他的前置处理很有意思，而且网上的很多教程写的不明不白，故开一贴写下自己的一些见解（伪教程？）。">
+<meta name="twitter:image" content="http://t1.aixinxi.net/o_1cu6dusdn7si1oho1kq71j4g112ja.png-w.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hyper_Muteki_DengTesla" type="application/atom+xml">
   
@@ -155,36 +166,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-一种亚线性筛法的详细解读-min-25筛前置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      一种亚线性筛法的详细解读(min_25筛前置)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/08/一种亚线性筛法的详细解读-min-25筛前置/" class="archive-article-date">
+
+        
+        <a href="/2018/12/08/一种亚线性筛法的详细解读-min-25筛前置/" class="archive-article-date">
   	<time datetime="2018-12-08T07:02:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/08/一种亚线性筛法的详细解读-min-25筛前置/">一种亚线性筛法的详细解读(min_25筛前置)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很早之前就了解了min_25筛，当时折腾了两三天魔改各种代码之后存下了一个自用的懒人操作的求积性函数前缀和模板。最近又碰到了些筛法的题，并且重新思考了min_25筛，发现他的前置处理很有意思，而且网上的很多教程写的不明不白，故开一贴写下自己的一些见解（伪教程？）。<br><a id="more"></a></p>
+<p>这种筛法要从 <a href="http://projecteuler.net/problem=10" target="_blank" rel="external">Problem 10 - Project Euler</a> 说起。在这道题的thread的第五页，Lucy_Hedgehog对于“求n以内质数和”的问题给出了一种亚线性的筛法，复杂度为 $O(n^{0.75})$ （事实上由于素数定理的缘故可以优化至 $O(\frac{n^{0.75}}{lnn})$ ）。而这种筛法的原理正是min_25筛的前置处理过程。</p>
+<h3 id="min-25筛"><a href="#min-25筛" class="headerlink" title="min_25筛"></a>min_25筛</h3><p>min_25筛是一种亚线性（ $O(\frac{n^{0.75}}{lnn})$ ）求解积性函数的前缀和的方法，只要该积性函数满足“在质数时的表达式为多项式，并且在质数幂次时的值容易求解”，就可以用min_25筛来求解其前缀和（其实有些不具有这样的性质的函数也可以这样求解）。其基本的思路是:首先求解 $\Sigma_{i=1}^{x}f(x)[x为质数]$ 在 $x=\lfloor \frac{n}{1} \rfloor , \lfloor \frac{n}{2} \rfloor , \lfloor \frac{n}{3} \rfloor,…$ 这 $O(\sqrt n)$ 个位置处的取值，然后利用这些值dfs求解即可。这里主要讨论他的前半部分：如何求解 $\Sigma_{i=1}^{x}f(x)[x为质数]$ 在 $x=\lfloor \frac{n}{1} \rfloor , \lfloor \frac{n}{2} \rfloor , \lfloor \frac{n}{3} \rfloor,…$ 这 $O(\sqrt n)$ 个位置处的取值？</p>
+<h3 id="如何求解-Sigma-i-1-x-f-x-x为质数-？"><a href="#如何求解-Sigma-i-1-x-f-x-x为质数-？" class="headerlink" title="如何求解 $\Sigma_{i=1}^{x}f(x)[x为质数]$ ？"></a>如何求解 $\Sigma_{i=1}^{x}f(x)[x为质数]$ ？</h3><p>网上找到的许多教程都把重点放在“推转移式”，“节省空间的动态规划”上，窃以为既然叫“筛”，那不如从筛法的角度来理解会更合适一点，我们从一个最简单的例子开始入手：求25以内质数的个数。</p>
+<p>我们先考虑所有形如 $\lfloor \frac{25}{i} \rfloor$ 的数，这种数只有 $9$ 个，分别是 ${1,2,3,4,5,6,8,12,25}$ (事实上，对于任意的 $n$ ，这种数的个数只有 $2\lfloor \sqrt n \rfloor$ 左右) 。</p>
+<p>筛之前我们先把表给列出来（已除去1），其中上半部分表示”现在还有哪些数是质数”，最后那一行是当前数组里的值（筛到目前在x以下的质数还有几个）。</p>
+<p><img src="http://t1.aixinxi.net/o_1cu6dusdn7si1oho1kq71j4g112ja.png-w.jpg" alt="image"></p>
+<p>考虑第一个质数 $2$，那么筛 $a[25]$ 时只要用 $a[\lfloor \frac{25}{2} \rfloor]$ 里的数值来筛即可，即：将 $a[ 25 ]$ 一栏下的 $2 * 2 , 2 * 3 , 2 * 4 , … , 2 * 12$ 筛去，同时将 $a[25]$ 中存储的数值 $24$ 减去 $a[12]$ 中存储的数值 $11$ 。</p>
+<p><img src="http://t1.aixinxi.net/o_1cu6ek61k116l6un14vu11ip1a3ta.png-w.jpg" alt="image"></p>
+<p>对 $a[12],a[8],…$ 都用 $2$ 筛一遍：</p>
+<p><img src="http://t1.aixinxi.net/o_1cu6es7o7n1t1d5p1deriukjtma.png-w.jpg" alt="image"></p>
+<p>接下来考虑下一个质数 $3$ ，用 $3$ 筛 $a[25]$ 时按照之前的流程也许会出现问题：我用 $a[\lfloor \frac{25}{3} \rfloor]$ 即 $a[8]$ 一栏下的每个数乘以 $3$ ,在 $a[25]$ 下将其划去，可是… $3*2=6$ 已经被划掉了啊？再划掉一次不会出问题么？</p>
+<p>回想一下在线性筛时的流程：每个数只会被其最小的质因子筛去一次。事实上，这里也是如此： $6$ 已经在用比 $3$ 更小的质数 $2$ 筛时筛去了。所以我们只需要考虑最小质因子是 $3$ 的数即可。换句话说，此时我们用来删去的集合其实是” $a[8]$ 下那一栏筛剩下的元素” 减去 “ $3$ 之前那个质数（在这里是 $a[2]$ ）下那一栏筛剩下的元素 “ ，$a[25]$ 中存储的元素也相应地减去 $(a[8]-a[2])$ ：</p>
+<p><img src="http://t1.aixinxi.net/o_1cu6fr9domcn1eg25q1at4r77a.png-w.jpg" alt="image"></p>
+<p>接下来对 $a[12],…$ 用相同操作处理。事实上，由于”如果 $n$ 不是质数，要么 $n$ 最小的质因子一定不大于 $\sqrt n$” ，所以当我们在用素数 $p$ 筛完一轮后（亦即：此时表中已经没有了“拥有比 $p$ 更小的因子的合数”），对于任意小于等于 $p * p$ 的 $t$ , $a[t]$ 中存储的值都已经是 “ $t$ 以下的质数个数” 了，也就是说此时的值都已经是我们想要的真值了。换个角度说，我们只需要使用 $\sqrt n$ 以下的质数即可将我们所需要的信息全部筛出来，同时对于每一轮的筛选也只需要处理满足 $t \geq p*p$ 的 $a[t]$ 即可。附上最终筛完的表：</p>
+<p><img src="http://t1.aixinxi.net/o_1cu6goehcmu1pt841u185a6g2a.png-w.jpg" alt="image"></p>
+<p>关于复杂度证明这里就不赘述了，网上铺天盖地的。。。（打latex真的好累啊TAT）</p>
+<h3 id="还能干什么？"><a href="#还能干什么？" class="headerlink" title="还能干什么？"></a>还能干什么？</h3><p>事实上这种亚线性筛的思想还是很有用的，比如再多维护一维之后可以筛出模一个小质数下不同余数的质数分别有多少个，同时对一些性质不那么好的积性函数只要能用这种筛法维护出他的“质数处函数值前缀和”，就一样可以利用min_25筛的后一部分的转移求出积性函数前缀和。（如有想到再做更新）</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,404 +253,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/12/08/一种亚线性筛法的详细解读-min-25筛前置/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/24/浅谈狄利克雷生成函数/" class="archive-article-date">
-  	<time datetime="2018-11-24T11:11:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/24/浅谈狄利克雷生成函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅谈狄利克雷生成函数</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/24/浅谈狄利克雷生成函数/">浅谈狄利克雷生成函数</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/26/2018ccpc网络赛1002/" class="archive-article-date">
-  	<time datetime="2018-08-26T15:24:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/26/2018ccpc网络赛1002/">2018ccpc网络赛1002(HDU6439)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/27/hdu6314/" class="archive-article-date">
-  	<time datetime="2018-07-26T16:48:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/27/hdu6314/">2018杭电多校赛第二场1006题（hdu6314）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/20/牛客18多校赛第一场B题/" class="archive-article-date">
-  	<time datetime="2018-07-19T16:40:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/20/牛客18多校赛第一场B题/">牛客18多校赛第一场B题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/31/实变函数与泛函分析程其襄4/" class="archive-article-date">
-  	<time datetime="2018-03-31T15:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/31/实变函数与泛函分析程其襄4/">实变函数与泛函分析程其襄第四章部分及几道杂题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/31/实变函数与泛函分析程其襄3/" class="archive-article-date">
-  	<time datetime="2018-03-31T15:01:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/31/实变函数与泛函分析程其襄3/">实变函数与泛函分析（程其襄）第三章答案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/31/实变函数与泛函分析程其襄2/" class="archive-article-date">
-  	<time datetime="2018-03-31T14:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/31/实变函数与泛函分析程其襄2/">实变函数与泛函分析（程其襄）第二章答案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/31/实变函数与泛函分析程其襄1/" class="archive-article-date">
-  	<time datetime="2018-03-31T14:50:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/31/实变函数与泛函分析程其襄1/">实变函数与泛函分析（程其襄）第一章答案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/22/关于Meissel-Lehmer算法计数素数/" class="archive-article-date">
-  	<time datetime="2018-02-21T16:20:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/22/关于Meissel-Lehmer算法计数素数/">关于Meissel-Lehmer算法计数素数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -621,8 +375,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
