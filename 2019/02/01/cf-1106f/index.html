@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hyper_Muteki_DengTesla</title>
+  <title>cf1106f 题解 | Hyper_Muteki_DengTesla</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hyper_Muteki_DengTesla">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="应该算是一个比较常见的套路了吧…模意义下乘法转加法然后就是个简单的递推题了。">
+<meta name="keywords" content="ACM,数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cf1106f 题解">
+<meta property="og:url" content="http://yoursite.com/2019/02/01/cf-1106f/index.html">
 <meta property="og:site_name" content="Hyper_Muteki_DengTesla">
+<meta property="og:description" content="应该算是一个比较常见的套路了吧…模意义下乘法转加法然后就是个简单的递推题了。">
+<meta property="og:updated_time" content="2019-02-01T11:11:30.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hyper_Muteki_DengTesla">
+<meta name="twitter:title" content="cf1106f 题解">
+<meta name="twitter:description" content="应该算是一个比较常见的套路了吧…模意义下乘法转加法然后就是个简单的递推题了。">
   
     <link rel="alternative" href="/atom.xml" title="Hyper_Muteki_DengTesla" type="application/atom+xml">
   
@@ -155,16 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-cf-1106f" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-cf-1106f" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/01/cf-1106f/">cf1106f 题解</a>
+    <h1 class="article-title" itemprop="name">
+      cf1106f 题解
     </h1>
   
 
@@ -177,12 +180,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>应该算是一个比较常见的套路了吧…模意义下乘法转加法然后就是个简单的递推题了。<br>
-        
-          <a class="article-more-a" href="/2019/02/01/cf-1106f/#more">more >></a>
-        
+        <p>应该算是一个比较常见的套路了吧…模意义下乘法转加法然后就是个简单的递推题了。<br><a id="more"></a><br>题意描述：对于序列 ${f_n}$ 给出递推定义：$f_i=\prod_{j=1}^k f_{i-j}^{b_j} \qquad (mod \ p)$ ， 其中模数 $p=998244353$</p>
+<p>接下来给出 $b_1,b_2,…,b_k$ 和 $f_1,f_2,…,f_{k-1}$ 以及 $f_n$ ，让你求 $f_k$ 的值，如果不存在则输出 $-1$ ，如果存在多解则输出其中任意一个。其中 $k \leq 100 , n \leq 10^9 ,f_1=f_2=…=f_{k-1}=1$ 。</p>
+<p>首先看到这样的一个长得和线性递推有几分相似的递推公式以及较小的 $k$ 的范围，容易想到往矩阵快速幂的方向考虑。但因为连乘形式的递推式无法用矩阵直接表示，所以我们考虑把这个递推式进行转化。很自然的就会想到求对数。而由于这是在模意义下的整数数列，所以我们需要一个和对数性质很相像的东西——离散对数。</p>
+<h2 id="离散对数"><a href="#离散对数" class="headerlink" title="离散对数"></a>离散对数</h2><p>我们都知道欧拉定理：若 $gcd(a,m)=1$ ,则 $a^{\phi(m)} \equiv 1(mod \ m)$ 。那么 $\phi(m)$ 是否是使得 $a^{x} \equiv 1(mod \ m)$ 成立的最小的正整数 $x$ 呢？事实上，当且仅当 $m$ 形如 $1,2,4,p,2p,p^n$ 时，存在 $a$ ，使得 $\phi(m)$ 是令 $a^{x} \equiv 1(mod \ m)$ 成立的最小的正整数。换句话说，我们能找到一个 $a$ ，使得 $a^0,a^1,a^2,a^3,…,a^{\phi(m)-1}$ 在 $mod \ m$ 意义下互不相同、并且均与 $m$ 互质。此时的 $a$ 我们称它为 $m$ 的原根。事实上，由于此时的 $a^0,a^1,a^2,a^3,…,a^{\phi(m)-1}$ 在 $mod \ m$ 意义下互不相同且均与 $m$ 互质，所以这 $\phi(m)$ 个数构成了与 $m$ 互质的 $\phi(m)$ 个数的一个排列。而当 $m$ 为质数 $p$ 时， $a^0,a^1,a^2,a^3,…,a^{p-2}$ 恰好就和 $1,2,3,…,p-1$ 形成了一一对应。换言之，对于任意一个数 $x\ (0&lt;x&lt;p)$ ，我们都能找到唯一的 $t\ (0 \leq t&lt;p-1)$ ，使得在模 $p$ 意义下 $a^t=x$ 。</p>
+<p>那么对于 $mod \ p$ 意义下的整数 $1,2,…,p-1$ 我们此时就有了一种新的表示方式，即：对于任意的 $1,2,…,p-1$ 之间的数 $k$ ，我们记满足 $a^x \equiv k\ (mod \ p)$ 的 $x$ 为 $ind_a(k) \ ( mod\ \phi(p))$ ，即 $k$ 在模 $p$ 意义下以 $a$ 为底的离散对数。</p>
+<p>离散对数有着与对数相近的性质，比如：<br>$$<br>ind_a(xy) \equiv ind_a(x)+ind_a(y)\ (mod \ \phi(p)) \\<br>ind_a(x^y) \equiv y*ind_a(x)\ (mod \ \phi(p))<br>$$</p>
+<p>求解一个数 $k$ 的离散对数本质上是在求解 $a^x \equiv k\ (mod \ p)$ 的解 $x$ ，用bsgs算法即可解决。</p>
+<p>于是对于这道题，我们构造一个序列 ${g_n}$ ，他满足 $g_i = ind_a(f_i)$ ，其中 $a$ 为 $998244353$ 的一个原根。那么 ${g_n}$ 就有递推式：$g_i=\sum_{j=1}^k b_j*g_{i-j}$ 。这便成了一个线性递推的形式。我们可以构造矩阵：<br>$$<br>\left[ \begin{matrix}<br>0 &amp; 0 &amp; \cdots &amp; 0 &amp; b_k\\<br>1 &amp; 0 &amp; \cdots &amp; 0 &amp; b_{k-1}\\<br>0 &amp; 1 &amp; \cdots &amp; 0 &amp; b_{k-2}\\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots\\<br>0 &amp; 0 &amp; \cdots &amp; 1 &amp; b_1<br>\end{matrix} \right]<br>$$<br>于是便有：<br>$$<br>\left[ \begin{matrix}<br>g_1 &amp; g_2 &amp; g_3 &amp; \cdots &amp; g_k<br>\end{matrix} \right] \left[ \begin{matrix}<br>0 &amp; 0 &amp; \cdots &amp; 0 &amp; b_k\\<br>1 &amp; 0 &amp; \cdots &amp; 0 &amp; b_{k-1}\\<br>0 &amp; 1 &amp; \cdots &amp; 0 &amp; b_{k-2}\\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots\\<br>0 &amp; 0 &amp; \cdots &amp; 1 &amp; b_1<br>\end{matrix} \right] ^{n-1}=\left[ \begin{matrix}<br>g_n &amp; g_{n+1} &amp; g_{n+2} &amp; \cdots &amp; g_{n+k-1}<br>\end{matrix} \right] \,\,\left( mod\,\,\phi \left( p \right) \right)<br>$$</p>
+<p>那么只要对这个矩阵求出其 $n-1$ 次幂后，利用其第一列元素即可得到一个关于 $g_1,g_2,…,g_k,g_n$ 的线性同余方程，用扩展欧几里得求解即可。</p>
+<p>总结一下，首先考虑序列 ${g_n=ind_a(f_n)}$ ，然后对序列 ${g_n}$ 用矩阵快速幂的方法得到 $g_1,g_2,…,g_{k-1},g_k,g_n$ 的关系并求解，然后用快速幂从$g_n$ 得到 $f_n$ 即可。总复杂度为 $O(\sqrt{n}+k^3logn)$ 。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -206,16 +242,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/01/cf-1106f/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/02/01/cf-1106f/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/08/一种亚线性筛法的详细解读-min-25筛前置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一种亚线性筛法的详细解读(min_25筛前置)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -235,733 +330,14 @@
 
 
 
-
-  
-    <article id="post-一种亚线性筛法的详细解读-min-25筛前置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/08/一种亚线性筛法的详细解读-min-25筛前置/">一种亚线性筛法的详细解读(min_25筛前置)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/08/一种亚线性筛法的详细解读-min-25筛前置/" class="archive-article-date">
-  	<time datetime="2018-12-08T07:02:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很早之前就了解了min_25筛，当时折腾了两三天魔改各种代码之后存下了一个自用的懒人操作的求积性函数前缀和模板。最近又碰到了些筛法的题，并且重新思考了min_25筛，发现他的前置处理很有意思，而且网上的很多教程写的不明不白，故开一贴写下自己的一些见解（伪教程？）。<br>
-        
-          <a class="article-more-a" href="/2018/12/08/一种亚线性筛法的详细解读-min-25筛前置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/08/一种亚线性筛法的详细解读-min-25筛前置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-浅谈狄利克雷生成函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/24/浅谈狄利克雷生成函数/">浅谈狄利克雷生成函数</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/24/浅谈狄利克雷生成函数/" class="archive-article-date">
-  	<time datetime="2018-11-24T11:11:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这两天抽空看了点关于生成函数的知识，指数型和普通生成函数在组合数学中基本都学习过了，主要是狄利克雷生成函数比较新颖，遂开一篇博客做一些笔记（理解不到位之处还望指出www）<br>
-        
-          <a class="article-more-a" href="/2018/11/24/浅谈狄利克雷生成函数/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/24/浅谈狄利克雷生成函数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2018ccpc网络赛1002" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/26/2018ccpc网络赛1002/">2018ccpc网络赛1002(HDU6439)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/26/2018ccpc网络赛1002/" class="archive-article-date">
-  	<time datetime="2018-08-26T15:24:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>离赛时ac就差了三行代码啊啊啊…十分的遗憾（虽然杭电崩溃事件对能不能过这道题没什么影响，但我就是要甩锅给hdu嘤嘤嘤）。<br>一开始看到这个题其实我觉得是线性筛就可以解决的，直到我发现还有一种特殊情况是需要亚线性筛才能解决…（其实我几乎没做过杜教筛的题呢…这也导致了bug多得起飞直到结束也没调完…）</p>
-<p>好的吐槽完毕，那么就进入正文吧。<br>
-        
-          <a class="article-more-a" href="/2018/08/26/2018ccpc网络赛1002/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/26/2018ccpc网络赛1002/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hdu6314" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/hdu6314/">2018杭电多校赛第二场1006题（hdu6314）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/27/hdu6314/" class="archive-article-date">
-  	<time datetime="2018-07-26T16:48:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>还是放一波图<br>
-        
-          <a class="article-more-a" href="/2018/07/27/hdu6314/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/27/hdu6314/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-牛客18多校赛第一场B题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/20/牛客18多校赛第一场B题/">牛客18多校赛第一场B题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/20/牛客18多校赛第一场B题/" class="archive-article-date">
-  	<time datetime="2018-07-19T16:40:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>就一张图：<br>
-        
-          <a class="article-more-a" href="/2018/07/20/牛客18多校赛第一场B题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/20/牛客18多校赛第一场B题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-实变函数与泛函分析程其襄4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/实变函数与泛函分析程其襄4/">实变函数与泛函分析程其襄第四章部分及几道杂题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/31/实变函数与泛函分析程其襄4/" class="archive-article-date">
-  	<time datetime="2018-03-31T15:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第四章只在本子上写了前四题…然后后面推的几个是一些杂题，题号标着了但我也不记得是第几章的了，对一下应该能找到是哪一章的。印象中是当初那本答案书上没有的几道题（答案书真的好多错误疏漏和缺题！），在考前因为答案书上没有所以临时决定做个答案出来（当然，考试并没有考到TAT）<br>
-        
-          <a class="article-more-a" href="/2018/03/31/实变函数与泛函分析程其襄4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/31/实变函数与泛函分析程其襄4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-实变函数与泛函分析程其襄3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/实变函数与泛函分析程其襄3/">实变函数与泛函分析（程其襄）第三章答案</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/31/实变函数与泛函分析程其襄3/" class="archive-article-date">
-  	<time datetime="2018-03-31T15:01:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这里是第三章的答案（仅供参考）<br>
-        
-          <a class="article-more-a" href="/2018/03/31/实变函数与泛函分析程其襄3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/31/实变函数与泛函分析程其襄3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-实变函数与泛函分析程其襄2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/实变函数与泛函分析程其襄2/">实变函数与泛函分析（程其襄）第二章答案</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/31/实变函数与泛函分析程其襄2/" class="archive-article-date">
-  	<time datetime="2018-03-31T14:53:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这里是第二章的答案（仅供参考）<br>
-        
-          <a class="article-more-a" href="/2018/03/31/实变函数与泛函分析程其襄2/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/31/实变函数与泛函分析程其襄2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-实变函数与泛函分析程其襄1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/31/实变函数与泛函分析程其襄1/">实变函数与泛函分析（程其襄）第一章答案</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/31/实变函数与泛函分析程其襄1/" class="archive-article-date">
-  	<time datetime="2018-03-31T14:50:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>好久以前的了，说实话我也不知道有没有做错。。。仅供参考~<br>
-        
-          <a class="article-more-a" href="/2018/03/31/实变函数与泛函分析程其襄1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/31/实变函数与泛函分析程其襄1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -984,8 +360,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
