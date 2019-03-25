@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hyper_Muteki_DengTesla</title>
+  <title>新版min25筛（O(n^(2/3))）详解 | Hyper_Muteki_DengTesla</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hyper_Muteki_DengTesla">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="众所周知，min_25曾经使用过一种较为通用的对积性函数求前缀和的亚线性筛法，复杂度为 $O(\frac{n^{0.75}}{logn})$ ，而在去年的11.11日，min_25又在他的个人博客上更新了一种新的求解积性函数前缀和的亚线性筛法，该算法的复杂度优化至了 $O(n^{\frac{2}{3}})$ ，但由于其博客为日文并且有诸多“省略”的地方理解起来较为不容易，因此打算写这么篇文章较为详">
+<meta name="keywords" content="ACM,数论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新版min25筛（O(n^(2&#x2F;3))）详解">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/新版min25筛（O-n-2-3-）详解/index.html">
 <meta property="og:site_name" content="Hyper_Muteki_DengTesla">
+<meta property="og:description" content="众所周知，min_25曾经使用过一种较为通用的对积性函数求前缀和的亚线性筛法，复杂度为 $O(\frac{n^{0.75}}{logn})$ ，而在去年的11.11日，min_25又在他的个人博客上更新了一种新的求解积性函数前缀和的亚线性筛法，该算法的复杂度优化至了 $O(n^{\frac{2}{3}})$ ，但由于其博客为日文并且有诸多“省略”的地方理解起来较为不容易，因此打算写这么篇文章较为详">
+<meta property="og:updated_time" content="2019-03-25T14:14:56.600Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hyper_Muteki_DengTesla">
+<meta name="twitter:title" content="新版min25筛（O(n^(2&#x2F;3))）详解">
+<meta name="twitter:description" content="众所周知，min_25曾经使用过一种较为通用的对积性函数求前缀和的亚线性筛法，复杂度为 $O(\frac{n^{0.75}}{logn})$ ，而在去年的11.11日，min_25又在他的个人博客上更新了一种新的求解积性函数前缀和的亚线性筛法，该算法的复杂度优化至了 $O(n^{\frac{2}{3}})$ ，但由于其博客为日文并且有诸多“省略”的地方理解起来较为不容易，因此打算写这么篇文章较为详">
   
     <link rel="alternative" href="/atom.xml" title="Hyper_Muteki_DengTesla" type="application/atom+xml">
   
@@ -155,88 +160,113 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-新版min25筛（O-n-2-3-）详解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/31/实变函数与泛函分析程其襄1/" class="archive-article-date">
-  	<time datetime="2018-03-31T14:50:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/31/实变函数与泛函分析程其襄1/">实变函数与泛函分析（程其襄）第一章答案</a>
+    <h1 class="article-title" itemprop="name">
+      新版min25筛（O(n^(2/3))）详解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/22/关于Meissel-Lehmer算法计数素数/" class="archive-article-date">
-  	<time datetime="2018-02-21T16:20:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-22</time>
+        
+        <a href="/2019/03/25/新版min25筛（O-n-2-3-）详解/" class="archive-article-date">
+  	<time datetime="2019-03-24T16:54:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/22/关于Meissel-Lehmer算法计数素数/">关于Meissel-Lehmer算法计数素数</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>众所周知，min_25曾经使用过一种较为通用的对积性函数求前缀和的亚线性筛法，复杂度为 $O(\frac{n^{0.75}}{logn})$ ，而在去年的11.11日，min_25又在他的个人博客上更新了一种新的求解积性函数前缀和的亚线性筛法，该算法的复杂度优化至了 $O(n^{\frac{2}{3}})$ ，但由于其博客为日文并且有诸多“省略”的地方理解起来较为不容易，因此打算写这么篇文章较为详细地解读这个新做法（勉强算教程向吧）。<br><a id="more"></a></p>
+<h3 id="与老版min-25筛的对比："><a href="#与老版min-25筛的对比：" class="headerlink" title="与老版min_25筛的对比："></a>与老版min_25筛的对比：</h3><p>首先最大的差异便是复杂度了。老版的min_25筛复杂度为 $O(\frac{n^{0.75}}{logn})$ ，这而这个新筛法复杂度为 $O(n^{\frac{2}{3}})$ ，但事实上常数较为巨大，所以在时间上其实并不是太占优势（也可能是我的姿势不太对）。</p>
+<p>在大致的思路方面其实两者的差异不是很大，新版min_25筛主要是在原有基础上利用树状数组和一些数论知识进行了一些加速，大体思路还是比较相似的（后半部分的方法对步骤进行了切割，变得更加复杂了）。</p>
+<p>就适用范围来说，两种min_25筛所适用的都是满足”在质数处表达式为多项式，在质数的高次幂处可以快速求值”的积性函数。事实上如果对其原理较为熟悉的话是可以略微扩大一些它的适用范围的，但就我个人而言，新版min_25筛较老版更难变通，也可能是还不够熟悉这种筛法的缘故。</p>
+<p>比较振奋人心的是新版min_25筛对于所求的 $n$ 可以同时得到 $F(\frac{n}{i})\ \ \  ( i \in [1,n])$ 处的所有的值，其中 $F(x)$ 表示该积性函数在 $x$ 处的前缀和。据我所知老版min_25筛只能对 $n$ 单点处求值，或者牺牲一定的时间/空间复杂度来记忆化获得其他 $O(\sqrt{n})$ 个点处的值。</p>
+<h3 id="一些也许会有用的前置资料："><a href="#一些也许会有用的前置资料：" class="headerlink" title="一些也许会有用的前置资料："></a>一些也许会有用的前置资料：</h3><ol>
+<li>min_25本人的blog: <a href="https://min-25.hatenablog.com/entry/2018/11/11/172216" target="_blank" rel="external">Sum of Multiplicative Function</a></li>
+<li>朱震霆的国家集训队论文： 《一些特殊的数论函数求和问题》, 国家集训队2018论文集</li>
+<li>计算 $\pi(x)$ 的meissel-lehmer方法： <a href="https://pdfs.semanticscholar.org/f722/80dcd5d5cdaca50a470e3e60b3a0c4e598de.pdf" target="_blank" rel="external">Computing $\pi(x)$ : The Meissel, Lehmer, Lagarias, Miller, Odlyzko method</a></li>
+<li>yyb的blog(不错的老版min_25筛教程)： <a href="https://www.cnblogs.com/cjyyb/p/9185093.html" target="_blank" rel="external">min_25筛</a></li>
+<li>我的blog(老版min_25筛前半部分的解读)： <a href="http://dengtesla.com/2018/12/08/%E4%B8%80%E7%A7%8D%E4%BA%9A%E7%BA%BF%E6%80%A7%E7%AD%9B%E6%B3%95%E7%9A%84%E8%AF%A6%E7%BB%86%E8%A7%A3%E8%AF%BB-min-25%E7%AD%9B%E5%89%8D%E7%BD%AE/" target="_blank" rel="external">一种亚线性筛法的详细解读(min_25筛前置)</a></li>
+</ol>
+<h3 id="一些符号与记号："><a href="#一些符号与记号：" class="headerlink" title="一些符号与记号："></a>一些符号与记号：</h3><p>（以下基本照搬自min_25的blog）</p>
+<p>$\pi(n)$ : $n$ 以下质数的个数。</p>
+<p>$p_k$ : 第 $k$ 个质数（比如 $p_1=2$ , $p_2=3$ …）</p>
+<p>$lpf(n)$ : $n$ 的最小质因子。 规定 $lpf(1) = \infty$</p>
+<p>$F_{prime}(n)$ : $\sum_{p=2}^{n}[p为质数]f(p)$</p>
+<p>$F_{k}(n)$ : $\sum_{i=1}^{n}[lpf(i) \geq p_k]f(i)$</p>
+<p>$V(f,n)$ : $\lbrace(i,f(i))|1 \leq i \leq \lfloor \sqrt{n} \rfloor \rbrace \cup \lbrace(\lfloor \frac{n}{i} \rfloor,f(\lfloor \frac{n}{i} \rfloor))|1 \leq i \leq \lfloor \sqrt{n} \rfloor \rbrace$ 即：$f$ 函数在 $n,\frac{n}{2},…,1$ 这 $O(\sqrt{n})$ 个点处的取值。</p>
+<h3 id="大致的流程："><a href="#大致的流程：" class="headerlink" title="大致的流程："></a>大致的流程：</h3><ol>
+<li>$O(n^{\frac{2}{3}})$ 计算出 $V(F_{prime},n)$</li>
+<li>利用 $V(F_{prime},n)$ , $O(\frac{n^{\frac{2}{3}}}{logn})$ 计算出 $V(F_{\pi(\sqrt[3]{n})+1},n)$</li>
+<li>利用 $V(F_{\pi(\sqrt[3]{n})+1},n)$ , $O(n^{\frac{2}{3}})$ 计算出 $V(F_{\pi(\sqrt[6]{n})+1},n)$</li>
+<li>利用 $V(F_{\pi(\sqrt[6]{n})+1},n)$ , $O(\frac{n^{\frac{2}{3}}}{logn})$ 计算出 $V(F_{1},n)$</li>
+</ol>
+<h3 id="计算-V-F-prime-n-："><a href="#计算-V-F-prime-n-：" class="headerlink" title="计算 $V(F_{prime},n)$ ："></a>计算 $V(F_{prime},n)$ ：</h3><p>事实上关于这个的计算在我的blog（前置资料的第五篇）中已经详细介绍过了做法，不过那篇文章中的做法是 $O(\frac{n^{0.75}}{logn})$ 的。稍后我们会利用在后面过程中使用到的思想结合树状数组来将其复杂度优化到 $O(n^{\frac{2}{3}})$ 。</p>
+<h3 id="计算-V-F-pi-sqrt-3-n-1-n-："><a href="#计算-V-F-pi-sqrt-3-n-1-n-：" class="headerlink" title="计算 $V(F_{\pi(\sqrt[3]{n})+1},n)$ ："></a>计算 $V(F_{\pi(\sqrt[3]{n})+1},n)$ ：</h3><p>记 $q = p_{\pi(\sqrt[3]{n})+1}$</p>
+<p>那么 $\forall \ m$ ,有 $F_{\pi(\sqrt[3]{n})+1}(m) = \sum_{i=1}^{m}[lpf(i) \geq q]f(i)$ 。</p>
+<p>因为 $lpf(i) \geq p_{\pi(\sqrt[3]{n})+1}$ ，故 $i$ 要么是不小于 $q$ 的质数，要么是不小于 $q$ 的两个质数的乘积，要么就是 $1$ 。</p>
+<p>于是就有 $F_{\pi(\sqrt[3]{n})+1}(m)=1+(F_{prime}(m)-F_{prime}(q-1)) +\sum_{p=q}^{\lfloor \sqrt{m} \rfloor}[p为质数] (f(p^2)+f(p)(F_{prime}(\lfloor \frac{m}{p} \rfloor)-F_{prime}(p)))$</p>
+<p>若 $m \in [q^2,n]$ 转移式如上。</p>
+<p>若 $m \in [q,q^2)$ 那么有 $F_{\pi(\sqrt[3]{n})+1}(m) = 1+(F_{prime}(m)-F_{prime}(q-1))$</p>
+<p>若 $m \in [1,q)$ ，那么显然有 $F_{\pi(\sqrt[3]{n})+1}(m) = 1$ 。</p>
+<h4 id="复杂度呢？"><a href="#复杂度呢？" class="headerlink" title="复杂度呢？"></a>复杂度呢？</h4><p>显而易见的是当 $m \in [1,q^2)$ 时，更新都是 $O(1)$ 的，而落在这个区间中的 $m$ 个数是 $O(\sqrt{n})$ 的。<br>当 $m \in [q^2,n]$ 时，每次更新进行的次数即为 $\pi(\sqrt{m})-\pi(q-1)$ ，而 $m$ 遍历 $\frac{n}{1},\frac{n}{2},…,\frac{n}{\sqrt[3]{n}}$ 故总的复杂度即为 $O(\sum_{i=1}^{\sqrt[3]{n}}\pi(\sqrt{n/i})+\sqrt{n}) = O(n^{2/3}/logn)$ 。</p>
+<h3 id="计算-V-F-pi-sqrt-6-n-1-n-："><a href="#计算-V-F-pi-sqrt-6-n-1-n-：" class="headerlink" title="计算 $V(F_{\pi(\sqrt[6]{n})+1},n)$ ："></a>计算 $V(F_{\pi(\sqrt[6]{n})+1},n)$ ：</h3><p>记 $v$ 为 $\lfloor \sqrt[3]{n} \rfloor$</p>
+<p>考虑以 $k=\pi(\sqrt[3]{n}),\pi(\sqrt[3]{n})-1,…,\pi(\sqrt[6]{n})+1$ 的顺序依次计算 $V(F_k,n)$ ：</p>
+<p>通过枚举 $F_k(m)$ 中计算的数所包含的 $p_k$ 的幂次即可知道，我们有： $F_k(m)=\sum_{e=0}f(p_{k}^e)\cdot F_{k+1}(m/p_{k}^{e})$</p>
+<p>如果直接使用这个式子更新，那么我们将会得到一个复杂度为 $O(\sum_{\sqrt[6]{n}&lt;p \leq \sqrt[3]{n}}(\sum_{i=1}^{\sqrt{n}}(log_{p}(n/i)+log_{p}(i))))=O(n^{5/6}/logn)$ 的算法。这是不可取的。但是我们可以将这个过程“切分”一下：对于形如 $\lfloor \frac{n}{i} \rfloor \ \ (1\leq i \leq v)$ 的数我们使用上面提到的式子来更新，而对于剩下的部分，我们考虑使用树状数组来维护。因为有 $F_{k}(m)=F_{k+1}(m)+\sum_{i=1}^{m}[lpf(i)==p_k]f(i)$ ，所以我们每次只需要使用 $[p_k,\frac{n}{v+1}]$ 中最小质数恰好为 $p_k$ 的数 $t$ 来更新落在 $[t,\frac{n}{v+1}]$ 中的所有 $m$ 所对应的 $F_{k}(m)$ 即可。这一步可以用树状数组的区间更新来高速完成。然后在下一次更新时，若更新形如 $\lfloor \frac{n}{i} \rfloor \ \ (1\leq i \leq v)$ 的数时调用到了树状数组上维护的这一部分，那么就可以用树状数组的单点查询来完成这一步。</p>
+<h4 id="复杂度呢？-1"><a href="#复杂度呢？-1" class="headerlink" title="复杂度呢？"></a>复杂度呢？</h4><p>根据min_25的blog，不大于 $\frac{n}{v+1}$ 并且满足 $lpf(m)&gt;\sqrt[6]{n}$ 的 $m$ 的个数是 $O(\frac{n^{\frac{2}{3}}}{logn})$ 的（ <a href="https://en.wikipedia.org/wiki/Buchstab_function" target="_blank" rel="external">https://en.wikipedia.org/wiki/Buchstab_function</a> ），所以区间更新的次数是 $O(\frac{n^{\frac{2}{3}}}{logn})$ 的。</p>
+<p>而在树状数组上单点查询的次数是 $O(\sum_{\sqrt[6]{n}&lt;p \leq \sqrt[3]{n}}(\sum_{i=1}^{v}log_{p}(n/i)))=O(n^{1/3}/logn \cdot n^{1/3})=O(\frac{n^{\frac{2}{3}}}{logn})$ 的.</p>
+<p>这两个操作都是 $log(n)$ 的复杂度，因此总的复杂度降为了 $O(n^{2/3})$ 。</p>
+<h3 id="计算-V-F-1-n-："><a href="#计算-V-F-1-n-：" class="headerlink" title="计算 $V(F_{1},n)$ ："></a>计算 $V(F_{1},n)$ ：</h3><p>这一步就十分简单了，使用之前的式子 $F_k(m)=\sum_{e=0}f(p_{k}^e)\cdot F_{k+1}(m/p_{k}^{e})$ 根据 $k=\pi(\sqrt[6]{n}),…,1$ 的顺序更新即可。总的复杂度即为 $O(\sum_{2\leq p\leq \sqrt[6]{n}}(\sum_{i=1}^{\sqrt{n}}(log_{p}(n/i)+log_{p}(i))))=O(n^{2/3}/logn)$ 。</p>
+<h3 id="补充：计算-V-F-prime-n-："><a href="#补充：计算-V-F-prime-n-：" class="headerlink" title="补充：计算 $V(F_{prime},n)$ ："></a>补充：计算 $V(F_{prime},n)$ ：</h3><p>其实有了上面 $V(F_{\pi(\sqrt[6]{n})+1},n)$ 的计算方法之后，可以用类似的思路结合我的blog中写的老版min_25筛的前置步骤来完成这一步。初始化时，将形如 $\frac{n}{i}$ 且满足 $\frac{n}{i} \in [1,\frac{n}{v+1}]$ 的这 $O(\sqrt{n})$ 个数初始化为“将每个数都视为质数时的结果”,然后在第 $k$ 次更新时对每个 $F_p(m)-=\sum_{i=1}^{m}[lpf(i)=p_k 且i不为质数]f(i)$ 。然后对于 $\frac{n}{i} \ \ i \in [1,v]$ 的值，使用老版min_25筛的前置所述的方法来更新，这在我的博文里有详细的讲解。总的复杂度分析方法同计算 $V(F_{\pi(\sqrt[6]{n})+1},n)$ 的部分。</p>
+<p>综上，在 $O(n^{2/3})$ 时间复杂度，$O(\sqrt{n})$ 的空间复杂度内完成了 $V(F_1,n)$ 的计算，亦即我们要求的积性函数前缀和。</p>
+<h3 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h3><p>计算积性函数：<br> $$<br>f\left( x \right) =\left\lbrace \begin{array}{l}<br>1\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\left( x=1\textrm{或}x=p^e,\textrm{其中}e&gt;1,p\textrm{为质数} \right)\\<br>p+1\,\,\,\,\,\,\,\,\,\,\left( x=p,p\textrm{为质数} \right)<br>\end{array} \right.<br>$$</p>
+<p> 的前缀和：<a href="https://paste.ubuntu.com/p/cfrHNn2mQT/" target="_blank" rel="external">代码</a></p>
+<p>代码风格比较差，见谅。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -246,357 +276,105 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/01/30/欧拉降幂公式证明/" class="archive-article-date">
-  	<time datetime="2018-01-29T16:29:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/30/欧拉降幂公式证明/">欧拉降幂公式证明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/30/泛函分析程其襄7/" class="archive-article-date">
-  	<time datetime="2017-11-30T04:56:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/30/泛函分析程其襄7/">实变函数与泛函分析（程其襄）第七章答案</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2019/03/25/新版min25筛（O-n-2-3-）详解/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/24/泛函分析4/" class="archive-article-date">
-  	<time datetime="2017-11-23T16:48:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/02/01/cf-1106f/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cf1106f 题解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/24/泛函分析4/">泛函分析（刘炳初）第四章答案</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/10/泛函分析3/" class="archive-article-date">
-  	<time datetime="2017-11-09T17:10:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/10/泛函分析3/">泛函分析（刘炳初）第三章答案</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/07/Wannafly模拟赛5，F题/" class="archive-article-date">
-  	<time datetime="2017-11-07T13:40:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/07/Wannafly模拟赛5，F题/">Wannafly模拟赛5，F题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ACM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/06/fanhan2/" class="archive-article-date">
-  	<time datetime="2017-11-06T15:17:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/06/fanhan2/">泛函分析（刘炳初）第二章答案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/04/fanhan1/" class="archive-article-date">
-  	<time datetime="2017-11-04T12:29:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/04/fanhan1/">泛函分析（刘炳初）第一章答案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数学</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">分析学</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/04/hello-world/" class="archive-article-date">
-  	<time datetime="2017-11-04T10:10:44.274Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -620,8 +398,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
